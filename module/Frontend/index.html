@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>G502 X DPI</title><link rel="stylesheet" href="/Src/Style.css"></head>
+<body><main>
+  <h1>G502 X <span>DPI</span></h1>
+  <p id="Status" role="status">正在检查连接…</p>
+  <p>当前 DPI：<strong id="CurrentDpi">—</strong></p>
+  <form id="DpiForm">
+    <label for="Dpi">输入 DPI</label>
+    <input id="Dpi" type="number" inputmode="numeric" required step="1" placeholder="等待设备连接" aria-describedby="Range" disabled>
+    <p id="Range">范围与步进将从鼠标读取。</p>
+    <button id="Apply" disabled>应用</button>
+    <button id="Refresh" type="button" class="Secondary">重新检测</button>
+  </form>
+  <p id="Message" role="status" aria-live="polite"></p>
+</main><script type="module" src="/Src/Pages/DpiPage.js"></script></body>
+</html>

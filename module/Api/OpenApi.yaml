@@ -1,0 +1,96 @@
+openapi: 3.0.3
+info:
+  title: G502 X 本机 DPI API
+  version: 0.1.0
+servers:
+  - url: http://127.0.0.1:8765
+paths:
+  /Api/Devices:
+    get:
+      operationId: DiscoverDevices
+      description: 只读发现 C547 接收器及可达 G502 X；接收器存在不表示鼠标已连接。
+      responses:
+        '200':
+          description: 发现结果；没有可达鼠标时 Devices 为空。
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ReceiverCount, Devices, Errors]
+                properties:
+                  ReceiverCount: {type: integer}
+                  Devices:
+                    type: array
+                    items: {$ref: '#/components/schemas/Device'}
+                  Errors:
+                    type: array
+                    items: {$ref: '#/components/schemas/ErrorDetail'}
+        default: {$ref: '#/components/responses/Error'}
+  /Api/Devices/{Id}/Dpi:
+    parameters:
+      - name: Id
+        in: path
+        required: true
+        schema: {type: string}
+        description: 最新发现响应返回的不透明 Id。
+    get:
+      operationId: ReadDpi
+      responses:
+        '200':
+          description: 最新设备状态；失败时不返回伪造的缓存状态。
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Device'}
+        default: {$ref: '#/components/responses/Error'}
+    post:
+      operationId: SetDpi
+      description: 必须携带同源 Origin 及 application/json。仅设置当前传感器 0 DPI，不保证持久化；失败后不要自动重试写入。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [Dpi]
+              properties:
+                Dpi: {type: integer, minimum: 1, maximum: 65535, description: 必须属于设备 SupportedDpi 列表。}
+      responses:
+        '200':
+          description: 写入并读回一致。
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Device'}
+        default: {$ref: '#/components/responses/Error'}
+components:
+  schemas:
+    Device:
+      type: object
+      required: [Id, Name, Connected, CurrentDpi, SupportedDpi, MinDpi, MaxDpi, DpiStep]
+      properties:
+        Id: {type: string}
+        Name: {type: string}
+        Connected: {type: boolean, enum: [true]}
+        CurrentDpi: {type: integer}
+        SupportedDpi:
+          type: array
+          items: {type: integer}
+        MinDpi: {type: integer}
+        MaxDpi: {type: integer}
+        DpiStep: {type: integer, nullable: true}
+    ErrorDetail:
+      type: object
+      required: [Code, Message]
+      properties:
+        Code: {type: string}
+        Message: {type: string}
+  responses:
+    Error:
+      description: 400 输入错误；403 来源或 Host 拒绝；404 设备或路由不存在；415 类型错误；502 协议或读回错误；503 不可达或依赖错误；500 后台异常。
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [Error]
+            properties:
+              Error: {$ref: '#/components/schemas/ErrorDetail'}

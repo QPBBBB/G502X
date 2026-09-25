@@ -1,0 +1,12 @@
+:root { color-scheme: dark; font-family: system-ui, "Microsoft YaHei", sans-serif; color: #e6edf5; background: #101318; }
+body { margin: 0; padding: 64px 20px; }
+main { box-sizing: border-box; max-width: 430px; margin: auto; background: #1b212a; padding: 28px; border: 1px solid #343e4c; border-radius: 12px; }
+h1 { margin: 0 0 20px; font-size: 26px; } h1 span { font-weight: 400; color: #a9b8c9; }
+p { line-height: 1.6; } label { display: block; margin-top: 24px; margin-bottom: 8px; }
+input { box-sizing: border-box; width: 100%; padding: 10px; border: 1px solid #596a7f; border-radius: 5px; font: inherit; background: #111820; color: #e6edf5; }
+input::placeholder { color: #99a8b9; }
+button { padding: 10px 18px; border: 0; border-radius: 5px; font: inherit; background: #86bbfa; color: #10243d; cursor: pointer; }
+button.Secondary { margin-left: 8px; color: #e1e9f3; background: #344152; }
+button:disabled { opacity: .45; cursor: default; } #Range { color: #a9b8c9; font-size: 13px; }
+#Message { margin-bottom: 0; overflow-wrap: anywhere; } [data-error="true"] { color: #ff9f9f; }
+strong { font-size: 24px; } :focus-visible { outline: 3px solid #7da8d9; outline-offset: 3px; }
