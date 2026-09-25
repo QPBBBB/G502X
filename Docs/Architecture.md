@@ -1,7 +1,7 @@
 # 架构与命名
 
 ```text
-module/
+Module/
   Frontend/
     index.html
     Src/

@@ -7,7 +7,7 @@ if not exist ".venv\Scripts\python.exe" (
     pause
     exit /b 1
 )
-".venv\Scripts\python.exe" "module\Backend\Src\Server.py" --open-browser
+".venv\Scripts\python.exe" "Module\Backend\Src\Server.py" --open-browser
 if errorlevel 1 (
     echo Unable to start. Check the message above. Port 8765 may already be in use.
     pause

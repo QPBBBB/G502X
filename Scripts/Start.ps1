@@ -5,4 +5,4 @@ $PythonPath = "$ProjectRoot/.venv/Scripts/python.exe"
 if (-not (Test-Path -LiteralPath $PythonPath)) {
     throw '请先按 README.md 创建 .venv 并安装依赖。'
 }
-& $PythonPath "$ProjectRoot/module/Backend/Src/Server.py" --port $Port
+& $PythonPath "$ProjectRoot/Module/Backend/Src/Server.py" --port $Port

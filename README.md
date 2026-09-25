@@ -47,13 +47,13 @@
 
 ```powershell
 python -m venv .venv
-& ./.venv/Scripts/python.exe -m pip install -r module/Backend/requirements.txt
+& ./.venv/Scripts/python.exe -m pip install -r Module/Backend/requirements.txt
 ```
 
 2. 双击项目根目录的 `G502XControlCenterWeb.bat`，自动启动本机服务并打开控制页面。保持终端窗口运行，按 Ctrl+C 停止服务。也可手动启动：
 
 ```powershell
-& ./.venv/Scripts/python.exe module/Backend/Src/Server.py
+& ./.venv/Scripts/python.exe Module/Backend/Src/Server.py
 ```
 
 3. 在控制页面确认已连接后输入 DPI，点击“应用”。手动启动后可打开 [G502 X Control Center Web](http://127.0.0.1:8765)。请使用该地址，不要改为 `localhost`。如果默认端口已被之前启动的服务占用，请先停止旧服务，再双击入口。
@@ -62,9 +62,9 @@ python -m venv .venv
 
 ## Agent Guide
 
-- `module/Frontend/`：HTML、CSS、JavaScript，无需构建。
-- `module/Backend/Src/`：HTTP Routes、Device Service、HID Transport、HID++ Protocol。
-- `module/Api/OpenApi.yaml`：API Contract。
+- `Module/Frontend/`：HTML、CSS、JavaScript，无需构建。
+- `Module/Backend/Src/`：HTTP Routes、Device Service、HID Transport、HID++ Protocol。
+- `Module/Api/OpenApi.yaml`：API Contract。
 - `Docs/`：架构、协议说明和第三方许可。
 - `Scripts/Start.ps1`：可选启动脚本。
 - 自定义代码名称使用 PascalCase；英文标题使用 Title Case；路径使用 `/`。标准库、工具要求的名称及命令保持原样，代码注释使用中文。
