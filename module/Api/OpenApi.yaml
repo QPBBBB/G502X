@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: G502 X 本机 DPI API
-  version: 0.1.0
+  version: 'v0.01'
 servers:
   - url: http://127.0.0.1:8765
 paths:

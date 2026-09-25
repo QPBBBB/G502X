@@ -2,7 +2,7 @@
 
 为自己的 Logitech G502 X LIGHTSPEED 开发的个人工具，基于 [OpenLogi](https://github.com/AprilNEA/OpenLogi) 的 HID++ 协议实现参考编写。使用 Python 独立实现，运行时无需安装 OpenLogi。
 
-## Version 1
+## v0.01
 
 - 深色 Web UI，直接输入 DPI。
 - 设备发现、连接状态、当前 DPI、设备支持的范围与步进。
@@ -10,6 +10,17 @@
 - Python Backend 使用 `hidapi`，仅监听本机，并校验写入请求来源。
 
 当前支持 `046D:C547` 接收器，通过设备名称识别鼠标。尚未实现改键、宏和板载配置保存。
+
+## Roadmap
+
+| Version | 目标 | 状态 |
+| --- | --- | --- |
+| v0.01 | DPI 调节、连接状态与基础 Web UI | 当前开发版本 |
+| v0.02 | 实现鼠标改键 | 计划中 |
+| v0.03 | 实现鼠标宏 | 计划中 |
+| v0.04 | 支持使用 Lua 脚本编写和执行鼠标宏 | 计划中 |
+| v0.05 | 优化前端界面与交互 | 计划中 |
+| v1.0 | 完成正式测试与发布 | 计划中 |
 
 ## Quick Start
 
