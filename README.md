@@ -13,14 +13,29 @@
 
 ## Roadmap
 
-| Version | 目标 | 状态 |
-| --- | --- | --- |
-| v0.01 | DPI 调节、连接状态与基础 Web UI | 当前开发版本 |
-| v0.02 | 实现鼠标改键 | 计划中 |
-| v0.03 | 实现鼠标宏 | 计划中 |
-| v0.04 | 支持使用 Lua 脚本编写和执行鼠标宏 | 计划中 |
-| v0.05 | 优化前端界面与交互 | 计划中 |
-| v1.0 | 完成正式测试与发布 | 计划中 |
+### v0.01 — DPI Control
+
+当前开发版本：实现 DPI 调节、连接状态与基础 Web UI。
+
+### v0.02 — Button Remapping
+
+计划：实现鼠标改键。
+
+### v0.03 — Mouse Macros
+
+计划：实现鼠标宏。
+
+### v0.04 — Lua Scripting
+
+计划：支持使用 Lua 脚本编写和执行鼠标宏。
+
+### v0.05 — Frontend Improvements
+
+计划：优化前端界面与交互。
+
+### v1.0 — Stable Release
+
+计划：完成正式测试与发布。
 
 ## Quick Start
 
