@@ -1,4 +1,4 @@
-# G502 X DPI
+# G502 X Control Center Web
 
 为自己的 Logitech G502 X LIGHTSPEED 开发的个人工具，基于 [OpenLogi](https://github.com/AprilNEA/OpenLogi) 的 HID++ 协议实现参考编写。使用 Python 独立实现，运行时无需安装 OpenLogi。
 
@@ -50,13 +50,13 @@ python -m venv .venv
 & ./.venv/Scripts/python.exe -m pip install -r module/Backend/requirements.txt
 ```
 
-2. 启动本机服务：
+2. 双击项目根目录的 `G502XControlCenterWeb.bat`，自动启动本机服务并打开控制页面。保持终端窗口运行，按 Ctrl+C 停止服务。也可手动启动：
 
 ```powershell
 & ./.venv/Scripts/python.exe module/Backend/Src/Server.py
 ```
 
-3. 双击项目根目录的 `G502X.url` 打开网页，或打开 [DPI 页面](http://127.0.0.1:8765)，确认已连接后输入 DPI，点击“应用”。网页入口需要本机服务已启动，默认使用端口 `8765`；请使用该地址，不要改为 `localhost`。
+3. 在控制页面确认已连接后输入 DPI，点击“应用”。手动启动后可打开 [G502 X Control Center Web](http://127.0.0.1:8765)。请使用该地址，不要改为 `localhost`。如果默认端口已被之前启动的服务占用，请先停止旧服务，再双击入口。
 
 按 Ctrl+C 停止服务。启动时追加 `--port 8766` 可更换端口；使用 `--probe` 可只读探测设备后退出。鼠标不可达时，先唤醒再重新检测；发生访问冲突时尝试退出 G HUB。
 
