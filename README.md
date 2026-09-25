@@ -56,7 +56,7 @@ python -m venv .venv
 & ./.venv/Scripts/python.exe module/Backend/Src/Server.py
 ```
 
-3. 打开 [DPI 页面](http://127.0.0.1:8765)，确认已连接后输入 DPI，点击“应用”。请使用该地址，不要改为 `localhost`。
+3. 双击项目根目录的 `G502X.url` 打开网页，或打开 [DPI 页面](http://127.0.0.1:8765)，确认已连接后输入 DPI，点击“应用”。网页入口需要本机服务已启动，默认使用端口 `8765`；请使用该地址，不要改为 `localhost`。
 
 按 Ctrl+C 停止服务。启动时追加 `--port 8766` 可更换端口；使用 `--probe` 可只读探测设备后退出。鼠标不可达时，先唤醒再重新检测；发生访问冲突时尝试退出 G HUB。
 
