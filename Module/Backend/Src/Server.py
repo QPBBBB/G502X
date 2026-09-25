@@ -1,4 +1,5 @@
 import argparse as Argparse
+import errno as Errno
 import json as Json
 import webbrowser as Webbrowser
 from http.server import ThreadingHTTPServer
@@ -16,7 +17,13 @@ def Main():
     if Arguments.probe:
         print(Json.dumps(Service.Discover(), ensure_ascii=False, indent=2))
         return
-    Server = ThreadingHTTPServer(('127.0.0.1', Arguments.port), HttpRoutes)
+    try:
+        Server = ThreadingHTTPServer(('127.0.0.1', Arguments.port), HttpRoutes)
+    except OSError as Error:
+        # 双击入口遇到旧服务占用时，使用空闲端口打开本次独立环境的页面。
+        if not Arguments.open_browser or (Error.errno != Errno.EADDRINUSE and getattr(Error, 'winerror', None) != 10013):
+            raise
+        Server = ThreadingHTTPServer(('127.0.0.1', 0), HttpRoutes)
     Server.Service = Service
     print(f'打开 http://127.0.0.1:{Server.server_port} ，按 Ctrl+C 停止。', flush=True)
     try:

@@ -41,27 +41,21 @@
 
 ## Quick Start
 
-需要 Windows 和 Python 3.12+，在项目根目录执行。
+需要 64 位 Windows。项目自带 `Python39/`（Python 3.9.11 与所需依赖），无需安装 Python，也不依赖 Codex 或旧 `.venv`。复制项目时请保留完整目录结构。
 
-1. 首次创建环境并安装依赖：
-
-```powershell
-python -m venv .venv
-& ./.venv/Scripts/python.exe -m pip install -r Module/Backend/requirements.txt
-```
-
-2. 双击项目根目录的 `G502XControlCenterWeb.bat`，自动启动本机服务并打开控制页面。保持终端窗口运行，按 Ctrl+C 停止服务。也可手动启动：
+1. 双击项目根目录的 `G502XControlCenterWeb.bat`，自动启动本机服务并打开控制页面。保持终端窗口运行，按 Ctrl+C 停止服务。也可在项目根目录手动启动：
 
 ```powershell
-& ./.venv/Scripts/python.exe Module/Backend/Src/Server.py
+& ./Python39/python.exe Module/Backend/Src/Server.py
 ```
 
-3. 在控制页面确认已连接后输入 DPI，点击“应用”。手动启动后可打开 [G502 X Control Center Web](http://127.0.0.1:8765)。请使用该地址，不要改为 `localhost`。如果默认端口已被之前启动的服务占用，请先停止旧服务，再双击入口。
+2. 在控制页面确认已连接后输入 DPI，点击“应用”。手动启动后可打开 [G502 X Control Center Web](http://127.0.0.1:8765)。请使用 `127.0.0.1`，不要改为 `localhost`。BAT 启动时若默认端口已被旧服务占用，会自动选择空闲端口并打开对应页面。
 
 按 Ctrl+C 停止服务。启动时追加 `--port 8766` 可更换端口；使用 `--probe` 可只读探测设备后退出。鼠标不可达时，先唤醒再重新检测；发生访问冲突时尝试退出 G HUB。
 
 ## Agent Guide
 
+- `Python39/`：独立嵌入式运行环境；依赖位于 `Lib/site-packages/`，相对导入路径由 `python39._pth` 配置。未包含 pip，运行无需安装依赖。
 - `Module/Frontend/`：HTML、CSS、JavaScript，无需构建。
 - `Module/Backend/Src/`：HTTP Routes、Device Service、HID Transport、HID++ Protocol。
 - `Module/Api/OpenApi.yaml`：API Contract。

@@ -19,4 +19,4 @@ PERFORMANCE OF THIS SOFTWARE.
 
 接收器标识和 Windows 集合分组的实现思路参考同一 OpenLogi 工程（MIT / Apache-2.0），本项目以 Python 独立实现，没有复制其 Rust 源文件。原工程未修改。
 
-hidapi Python 包按其上游提供的许可证分发，见 https://github.com/trezor/cython-hidapi 。依赖通过 pip 安装，不把依赖二进制纳入本项目源码。
+hidapi Python 包按其上游提供的许可证分发，见 https://github.com/trezor/cython-hidapi 。项目在 `Python39/` 中附带 Windows x64 运行环境与依赖：Python 3.9.11、hidapi 0.14.0.post4、setuptools 82.0.1。Python 许可保留于 `Python39/LICENSE.txt`，依赖的许可与元数据保留于 `Python39/Lib/site-packages/` 中各自的 `.dist-info` 目录。
