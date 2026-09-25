@@ -10,4 +10,3 @@ __pycache__/
 .coverage
 .coverage.*
 htmlcov/
-Python39/Lib/site-packages/**/tests/
