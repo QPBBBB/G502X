@@ -41,7 +41,7 @@
 
 ## Quick Start
 
-需要 64 位 Windows。项目自带 `Python39/`（Python 3.9.11 与所需依赖），无需安装 Python，也不依赖 Codex 或旧 `.venv`。复制项目时请保留完整目录结构。
+需要 64 位 Windows。项目自带 `Python39/`（Python 3.9.11 与所需依赖），无需安装 Python，也不依赖 Codex 或旧 `.venv`。复制或移动项目时，请保留完整目录结构。
 
 1. 双击项目根目录的 `G502XControlCenterWeb.bat`，自动启动本机服务并打开控制页面。保持终端窗口运行，按 Ctrl+C 停止服务。也可在项目根目录手动启动：
 
